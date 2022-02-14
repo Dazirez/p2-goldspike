@@ -19,8 +19,7 @@ public class PlayerMovement : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical"); 
         
         
-        Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical).normalized; 
+        Vector3 movement = new Vector3 (moveHorizontal, moveVertical, 0.0f).normalized; 
         rb.velocity = movement * speed;
     }
-  
 }
