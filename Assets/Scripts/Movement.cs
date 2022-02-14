@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     protected Vector2 curr_direction; 
     protected Rigidbody rb;
 
+    private float timer;
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -21,10 +22,16 @@ public class Movement : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         Vector2 curr = GetInput(); 
-        if(Abs(curr.x) > 0 || Abs(curr.y) > 0)
+        if(Abs(curr.x) > 0)
         {
-            curr_direction = curr; 
+            curr_direction.x = curr.x; 
         }
+        else if (Abs(curr.y) > 0)
+        {
+            curr_direction.y = curr.y;
+        }
+       
+       
         Debug.Log("curr:" + curr_direction);
         rb.velocity = curr * speed;
     }

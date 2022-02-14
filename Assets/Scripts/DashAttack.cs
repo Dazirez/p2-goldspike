@@ -4,32 +4,77 @@ using UnityEngine;
 
 public class DashAttack : MonoBehaviour
 {
-    Movement mv;
-    Rigidbody rb;
-
-    public float force = 1f; 
-    public float cooldown = 5f;
-    private float timer = 5f; 
+    private Rigidbody rb;
+    public float dashSpeed;
+    private float dashTime;
+    public float startDashTime;
+    private int direction; 
     // Start is called before the first frame update
     void Start()
     {
-        mv = GetComponent<Movement>();
-        rb = GetComponent<Rigidbody>(); 
+        rb = GetComponent<Rigidbody>();
+        dashTime = startDashTime; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime; 
+        if(direction == 0)
+        {
+            if(Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                direction = 1; 
+            }
+            else if(Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                direction = 2; 
+            }
+            else if(Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                direction = 3; 
+            }
+            else if(Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                direction = 4; 
+            }
+        }
+        else
+        {
+            if(dashTime <= 0)
+            {
+                direction = 0;
+                dashTime = startDashTime;
+                rb.velocity = Vector2.zero; 
+            }
+            else {
+                dashTime -= Time.deltaTime;
+                if(direction == 1)
+                {
+                    rb.velocity = Vector2.left * dashSpeed; 
+                }
+                else if(direction == 2)
+                {
+                    rb.velocity = Vector2.right * dashSpeed; 
+                }
+                else if(direction == 3)
+                {
+                    rb.velocity = Vector2.up * dashSpeed; 
+                }
+                else if(direction == 4)
+                {
+                    rb.velocity = Vector2.down * dashSpeed; 
+                }
+            }
+        }
     }
 
-    public void Attack()
-    {
-        rb.velocity = Vector3.zero; 
-        timer = 0f;
-        Vector2 direction = mv.Get_Direction();
-        Debug.Log("curr dash: " + direction);
-        rb.AddForce(direction * force, ForceMode.Impulse); 
+    //public void Attack()
+    //{
+    //    rb.velocity = Vector3.zero; 
+    //    timer = 0f;
+    //    Vector2 direction = mv.Get_Direction();
+    //    Debug.Log("curr dash: " + direction);
+    //    rb.AddForce(direction * force, ForceMode.Impulse); 
         
-    }
+    //}
 }

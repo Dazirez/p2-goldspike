@@ -14,7 +14,7 @@ public class PlayerControls : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            attack1.Attack(); 
+            //attack1.Attack(); 
         }
     }
 }
