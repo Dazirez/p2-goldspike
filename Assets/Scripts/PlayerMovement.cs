@@ -17,8 +17,8 @@ public class PlayerMovement : Movement
     }
 
     protected override Vector2 GetInput() {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        float moveVertical = Input.GetAxisRaw("Vertical");
 
 
         Vector3 movement = new Vector2(moveHorizontal, moveVertical).normalized;
