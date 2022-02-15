@@ -8,10 +8,8 @@ public class Movement : MonoBehaviour
 {
     public float speed = 25f;
 
-    protected Vector2 curr_direction; 
     protected Rigidbody rb;
 
-    private float timer;
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -21,18 +19,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
-        Vector2 curr = GetInput(); 
-        if(Abs(curr.x) > 0)
-        {
-            curr_direction.x = curr.x; 
-        }
-        else if (Abs(curr.y) > 0)
-        {
-            curr_direction.y = curr.y;
-        }
-       
-       
-        Debug.Log("curr:" + curr_direction);
+        Vector2 curr = GetInput();
         rb.velocity = curr * speed;
     }
 
@@ -40,7 +27,4 @@ public class Movement : MonoBehaviour
         return Vector2.zero; 
     }
 
-    public Vector2 Get_Direction() {
-        return curr_direction; 
-    }
 }
