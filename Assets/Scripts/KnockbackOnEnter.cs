@@ -71,13 +71,19 @@ public class KnockbackOnEnter : MonoBehaviour
         mv.enabled = false; 
         while (timer > 0.0f)
         {
+            if (sprite == null) break;
             timer -= Time.deltaTime; 
             sprite.enabled = false;
             yield return new WaitForSeconds(0.05f);
             sprite.enabled = true;
             yield return new WaitForSeconds(0.05f);
         }
-        mv.enabled = true; 
+        if(mv != null)
+        {
+            mv.enabled = true;
+
+
+        }
 
     }
 }

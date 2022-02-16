@@ -13,3 +13,7 @@ BACKGROUND MUSIC
 
 CAMERA SHAKE EFFECT
     - https://github.com/andersonaddo/EZ-Camera-Shake-Unity
+
+SOUND EFFECTS 
+    -https://assetstore.unity.com/packages/audio/sound-fx/8-bit-style-sound-effects-68228#content
+
