@@ -23,6 +23,11 @@ public class PlayerControls : MonoBehaviour
             //attack1.Attack();
             StartCoroutine(dashattack());
         }
+        if (Input.GetKeyDown(KeyCode.X) && !busy)
+        {
+            //attack1.Attack();
+            StartCoroutine(swordattack());
+        }
     }
 
     IEnumerator dashattack()
@@ -39,6 +44,21 @@ public class PlayerControls : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GetComponent<KnockbackOnEnter>().disabled = true;
         rb.velocity = Vector2.zero;
+        mv.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        busy = false;
+
+    }
+    IEnumerator swordattack()
+    {
+        Vector2 direction = mv.GetDirection().normalized;
+        busy = true;
+        mv.enabled = false;
+        GetComponent<KnockbackOnEnter>().disabled = false;
+        EventBus.Publish<SwordSwingEvent>(new SwordSwingEvent());
+
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<KnockbackOnEnter>().disabled = true;
         mv.enabled = true;
         yield return new WaitForSeconds(0.25f);
         busy = false;

@@ -12,9 +12,9 @@ public class DestroyOnFall : MonoBehaviour
         if(dead)
         {
             GetComponent<Movement>().enabled = false;
-
         }
-        if (!dead && transform.position.z > 0.001) {
+        if (!dead && (transform.position.z > 0.01 )) {
+            GetComponent<Rigidbody>().velocity = Vector2.zero;
             GetComponent<SpriteRenderer>().sortingOrder = -1; 
             dead = true;
             EventBus.Publish<ScoreEvent>(new ScoreEvent(score_value));

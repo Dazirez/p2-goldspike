@@ -7,6 +7,7 @@ public class InputToAnimator : MonoBehaviour
     Animator animator;
     Movement movement;
     Subscription<DashEvent> dash_event_subscription;
+    Subscription<SwordSwingEvent> sword_swing_event_subscription; 
     private bool facingRight = false; 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,7 @@ public class InputToAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
         movement = GetComponent<Movement>();
         dash_event_subscription = EventBus.Subscribe<DashEvent>(_OnDash);
-
+        sword_swing_event_subscription = EventBus.Subscribe<SwordSwingEvent>(_OnSwing); 
     }
 
     void _OnDash(DashEvent e)
@@ -22,6 +23,12 @@ public class InputToAnimator : MonoBehaviour
         animator.SetTrigger("dash");
 
     }
+    void _OnSwing(SwordSwingEvent e)
+    {
+        animator.SetTrigger("sword");
+
+    }
+
     // Update is called once per frame
     void Update()
     {

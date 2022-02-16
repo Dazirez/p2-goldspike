@@ -29,6 +29,11 @@ public class DashEvent
     public DashEvent() { }
 }
 
+public class SwordSwingEvent
+{
+    public SwordSwingEvent() { }
+}
+
 public class DamageEvent
 {
     public int damage_amount = 0;
