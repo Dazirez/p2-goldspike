@@ -13,33 +13,44 @@ public class GameController : MonoBehaviour
     Subscription<ScoreEvent> death_event_subscription;
 
     public int health = 100;
+    public int enemies_left;
     public int score = 0; 
-    public int current_level; 
+    public int current_level;
+    public int[] num_enemies;
+
     void Awake()
     {
+       
         if (instance == null)
         {
+            enemies_left = num_enemies[current_level - 1];
+
+            damage_event_subscription = EventBus.Subscribe<DamageEvent>(_OnDamageUpdate);
+            death_event_subscription = EventBus.Subscribe<ScoreEvent>(_OnScoreUpdated);
             instance = this;
         }
         else if (instance != this)
         {
+            EventBus.Unsubscribe(damage_event_subscription);
+            EventBus.Unsubscribe(death_event_subscription);
             Destroy(gameObject);
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        damage_event_subscription = EventBus.Subscribe<DamageEvent>(_OnDamageUpdate);
-        death_event_subscription = EventBus.Subscribe<ScoreEvent>(_OnScoreUpdated);
-
-    }
+    //// Start is called before the first frame update
+    //void Start()
+    //{
+    //    damage_event_subscription = EventBus.Subscribe<DamageEvent>(_OnDamageUpdate);
+    //    death_event_subscription = EventBus.Subscribe<ScoreEvent>(_OnScoreUpdated);
+    //}
 
     void _OnScoreUpdated(ScoreEvent e)
     {
         score += e.new_score;
-        if(score >= 10)
+        enemies_left--;
+        if (enemies_left <= 0)
         {
-            LoadNext(); 
+            enemies_left = num_enemies[current_level % num_enemies.Length];
+            LoadNext();
         }
     }
     void LoadNext()
@@ -65,8 +76,13 @@ public class GameController : MonoBehaviour
     void _OnDamageUpdate(DamageEvent e)
     {
         health -= e.damage_amount;
-        Debug.Log("heatlh: " + health); 
-        if(health <= 0)
+        enemies_left--;
+        if (enemies_left <= 0)
+        {
+            enemies_left = num_enemies[current_level % num_enemies.Length];
+            LoadNext();
+        }
+        if (health <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

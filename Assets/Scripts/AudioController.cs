@@ -40,4 +40,11 @@ public class AudioController : MonoBehaviour
     {
         AudioSource.PlayClipAtPoint(clips[n], Camera.main.transform.position);
     }
+    private void OnDestroy()
+    {
+        EventBus.Unsubscribe(damage_event_subscription);
+        EventBus.Unsubscribe(collision_event_subscription);
+
+    }
 }
+
