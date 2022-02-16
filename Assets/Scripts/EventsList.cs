@@ -17,11 +17,23 @@ public class ScoreEvent
 
 public class CollisionEvent
 {
-    public CollisionEvent() { }
+    public float power = 0f; 
+    public CollisionEvent(float _power) {
+        power = _power; 
+    }
 }
 
 
 public class DashEvent
 {
     public DashEvent() { }
+}
+
+public class DamageEvent
+{
+    public int damage_amount = 0;
+    public DamageEvent(int _damage_amount)
+    {
+        damage_amount = _damage_amount;
+    }
 }

@@ -21,7 +21,6 @@ public class PlayerControls : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && !busy)
         {
             //attack1.Attack();
-            Debug.Log(mv.GetDirection());
             StartCoroutine(dashattack());
         }
     }

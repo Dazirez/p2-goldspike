@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
     }
     void _OnCollisionUpdated(CollisionEvent e)
     {
-        CameraShaker.Instance.ShakeOnce(4f, 20f, 0.1f, 1f); 
+        CameraShaker.Instance.ShakeOnce(4f, e.power, 0.1f, 1f); 
     }
     // Update is called once per frame
     void LateUpdate()

@@ -16,19 +16,19 @@ public class KnockbackOnEnter : MonoBehaviour
         if (disabled) return; 
         Rigidbody other_rb = other.GetComponent<Rigidbody>();
 
-
+        
         /* Perform Knockback */
         if (other_rb != null)
         {
             StartCoroutine(Stun(other)); 
 
-            EventBus.Publish<CollisionEvent>(new CollisionEvent());
+            EventBus.Publish<CollisionEvent>(new CollisionEvent(knockback_power));
 
             Vector3 knockback_direction = (other.transform.position - transform.position).normalized;
             other_rb.velocity = Vector2.zero;
             knockback_direction.x = -Math.Abs(knockback_direction.x);
           
-            other_rb.AddForce(knockback_direction * knockback_power, ForceMode.Impulse);
+            other_rb.AddForce(knockback_direction.normalized * knockback_power, ForceMode.Impulse);
             /////* Determine Knockback direction -> horizontal vs vertical */
             //if (Math.Abs(knockback_direction.x) > Math.Abs(knockback_direction.y))
             //{
@@ -66,8 +66,9 @@ public class KnockbackOnEnter : MonoBehaviour
     private IEnumerator Stun(Collider other)
     {
         SpriteRenderer sprite = other.GetComponent<SpriteRenderer>();
+        Movement mv = other.GetComponent<Movement>();
         float timer = 0.05f;
-
+        mv.enabled = false; 
         while (timer > 0.0f)
         {
             timer -= Time.deltaTime; 
@@ -76,7 +77,7 @@ public class KnockbackOnEnter : MonoBehaviour
             sprite.enabled = true;
             yield return new WaitForSeconds(0.05f);
         }
-
+        mv.enabled = true; 
 
     }
 }
