@@ -45,6 +45,10 @@ public class InputToAnimator : MonoBehaviour
             }
 
             animator.SetBool("idle", false);
+        }
+        else
+        {
+            animator.SetBool("idle", false);
 
         }
     }

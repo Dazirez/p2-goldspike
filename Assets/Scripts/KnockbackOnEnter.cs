@@ -74,7 +74,6 @@ public class KnockbackOnEnter : MonoBehaviour
 
         while (timer > 0.0f)
         {
-            Debug.Log("timer: " + timer); 
             timer -= Time.deltaTime; 
             sprite.enabled = false;
             yield return new WaitForSeconds(0.05f);
