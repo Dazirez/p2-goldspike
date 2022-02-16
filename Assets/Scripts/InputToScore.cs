@@ -27,12 +27,8 @@ public class InputToScore : MonoBehaviour
         text_component.text = "Score : " + total_score;
     }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    if (inventory != null && text_component != null)
-    //    {
-    //        text_component.text = ": " + inventory.GetBombs().ToString();
-    //    }
-    //}
+    private void OnDestroy()
+    {
+        EventBus.Unsubscribe(death_event_subscription);
+    }
 }

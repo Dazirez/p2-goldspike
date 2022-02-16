@@ -34,7 +34,8 @@ public class GameController : MonoBehaviour
     void _OnDamageUpdate(DamageEvent e)
     {
         health -= e.damage_amount;
-        if(health < 0)
+        Debug.Log("heatlh: " + health); 
+        if(health <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

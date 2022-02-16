@@ -10,7 +10,7 @@ public class InputToAnimator : MonoBehaviour
     Subscription<SwordSwingEvent> sword_swing_event_subscription; 
     private bool facingRight = false; 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
         movement = GetComponent<Movement>();
@@ -26,7 +26,6 @@ public class InputToAnimator : MonoBehaviour
     void _OnSwing(SwordSwingEvent e)
     {
         animator.SetTrigger("sword");
-
     }
 
     // Update is called once per frame
@@ -75,5 +74,11 @@ public class InputToAnimator : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+    private void OnDestroy()
+    {
+        EventBus.Unsubscribe(dash_event_subscription);
+        EventBus.Unsubscribe(sword_swing_event_subscription);
+
     }
 }
