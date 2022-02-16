@@ -51,15 +51,17 @@ public class PlayerControls : MonoBehaviour
     }
     IEnumerator swordattack()
     {
-        Vector2 direction = mv.GetDirection().normalized;
         busy = true;
         mv.enabled = false;
+        rb.velocity = Vector2.zero;
         GetComponent<KnockbackOnEnter>().disabled = false;
         EventBus.Publish<SwordSwingEvent>(new SwordSwingEvent());
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         GetComponent<KnockbackOnEnter>().disabled = true;
         mv.enabled = true;
+        rb.velocity = Vector2.zero;
+
         yield return new WaitForSeconds(0.25f);
         busy = false;
 

@@ -10,7 +10,7 @@ public class KnockbackOnEnter : MonoBehaviour
     public float knockback_power = 20f;
     public bool destroy_self_on_touch = false;
     public bool disabled = true; 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
 
         if (disabled) return; 
