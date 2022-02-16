@@ -9,10 +9,15 @@ public class DestroyOnFall : MonoBehaviour
     public int score_value = 10;
     void Update()
     {
-        if(!dead && transform.position.z > 0.5) {
+        if(!dead && transform.position.z > 0.001) {
+            GetComponent<Movement>().enabled = false;
+            GetComponent<SpriteRenderer>().sortingOrder = -1; 
             dead = true;
             EventBus.Publish<ScoreEvent>(new ScoreEvent(score_value));
             StartCoroutine(Death()); 
+        }
+        if(transform.position.z > 10) {
+            Destroy(gameObject);
         }
     }
     IEnumerator Death()
