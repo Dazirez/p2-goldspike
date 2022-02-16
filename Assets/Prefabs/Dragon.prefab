@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dead: 0
   score_value: 25
-  lower_bound: -6.8
+  lower_bound: -6.7
   upper_bound: 5.5
   left_bound: -11
 --- !u!114 &869014989345764255
