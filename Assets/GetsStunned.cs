@@ -14,16 +14,19 @@ public class GetsStunned : MonoBehaviour
         timer -= Time.deltaTime;
 
     }
-    public void Stun()
+    public void Stun(float knockback_power)
     {
         if (!stunned)
         {
-            StartCoroutine(Stunned());
+            stunned = true; 
+            StartCoroutine(Stunned(knockback_power));
 
         }
     }
-    private IEnumerator Stunned()
+    private IEnumerator Stunned(float knockback_power)
     {
+        EventBus.Publish<CollisionEvent>(new CollisionEvent(knockback_power));
+
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         Movement mv = GetComponent<Movement>();
         timer = 2f;

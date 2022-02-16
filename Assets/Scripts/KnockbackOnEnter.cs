@@ -20,9 +20,8 @@ public class KnockbackOnEnter : MonoBehaviour
         /* Perform Knockback */
         if (other_rb != null)
         {
-            other.GetComponent<GetsStunned>().Stun(); 
+            other.GetComponent<GetsStunned>().Stun(knockback_power); 
 
-            EventBus.Publish<CollisionEvent>(new CollisionEvent(knockback_power));
 
             Vector3 knockback_direction = (other.transform.position - transform.position).normalized;
             other_rb.velocity = Vector2.zero;
