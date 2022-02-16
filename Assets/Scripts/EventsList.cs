@@ -21,7 +21,7 @@ public class CollisionEvent
 }
 
 
-public class DeathEvent
+public class DashEvent
 {
-    public DeathEvent() { }
+    public DashEvent() { }
 }

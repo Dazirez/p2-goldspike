@@ -6,15 +6,22 @@ public class InputToAnimator : MonoBehaviour
 {
     Animator animator;
     Movement movement;
-
+    Subscription<DashEvent> dash_event_subscription;
     private bool facingRight = false; 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         movement = GetComponent<Movement>();
+        dash_event_subscription = EventBus.Subscribe<DashEvent>(_OnDash);
+
     }
 
+    void _OnDash(DashEvent e)
+    {
+        animator.SetTrigger("dash");
+
+    }
     // Update is called once per frame
     void Update()
     {

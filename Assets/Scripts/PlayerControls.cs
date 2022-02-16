@@ -33,6 +33,7 @@ public class PlayerControls : MonoBehaviour
         mv.enabled = false;
         rb.velocity = -direction * 5.0f;
         yield return new WaitForSeconds(0.5f);
+        EventBus.Publish<DashEvent>(new DashEvent());
         rb.velocity = direction * dash_attack_force;
         yield return new WaitForSeconds(0.1f);
         busy = false;
