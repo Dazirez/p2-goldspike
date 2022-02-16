@@ -7,6 +7,7 @@ public class InputToAnimator : MonoBehaviour
     Animator animator;
     Movement movement;
 
+    private bool facingRight = false; 
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +28,34 @@ public class InputToAnimator : MonoBehaviour
             //if(!is_player) Debug.Log("disabling movement animation"); 
             //animator.speed = 0.0f;
         }
-        else
+        else if(x > 0) 
         {
+            if(!facingRight)
+            {
+                Flip();
+            }
             animator.SetBool("idle", false);
         }
+        else if(x < 0)
+        {
+            if(facingRight)
+            {
+                Flip();
+
+            }
+
+            animator.SetBool("idle", false);
+
+        }
+    }
+    void Flip()
+    {
+        // Switch the way the player is labelled as facing
+        facingRight = !facingRight;
+
+        // Multiply the player's x local scale by -1
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
