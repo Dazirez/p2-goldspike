@@ -31,13 +31,18 @@ public class PlayerControls : MonoBehaviour
         Vector2 direction = mv.GetDirection().normalized; 
         busy = true;
         mv.enabled = false;
-        rb.velocity = -direction * 5.0f;
-        yield return new WaitForSeconds(0.5f);
+        rb.velocity = -direction * 10.0f;
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<KnockbackOnEnter>().disabled = false;
+
         EventBus.Publish<DashEvent>(new DashEvent());
         rb.velocity = direction * dash_attack_force;
         yield return new WaitForSeconds(0.1f);
-        busy = false;
+        GetComponent<KnockbackOnEnter>().disabled = true;
         rb.velocity = Vector2.zero;
         mv.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        busy = false;
+
     }
 }
