@@ -1,2 +1,3 @@
-An In Depth, knockback mechanic that is able to be powered up by player level
-and different abilities (e.g. a charge attack/sword swing/ground/pound)
+GOLD SPIKE FEATURE: An in depth, knockback mechanic varying with 
+differying abilities (e.g. a charge attack/sword swing)
+
