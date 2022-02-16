@@ -16,10 +16,10 @@ public class KnockbackOnEnter : MonoBehaviour
         Rigidbody other_rb = other.GetComponent<Rigidbody>();
 
 
-
         /* Perform Knockback */
         if (other_rb != null)
         {
+            StartCoroutine(Stun(other)); 
 
             EventBus.Publish<CollisionEvent>(new CollisionEvent());
 
@@ -65,9 +65,23 @@ public class KnockbackOnEnter : MonoBehaviour
         if (destroy_self_on_touch)
             Destroy(gameObject);
     }
-}
 
-public class CollisionEvent
-{
-    public CollisionEvent() { }
+  
+    private IEnumerator Stun(Collider other)
+    {
+        SpriteRenderer sprite = other.GetComponent<SpriteRenderer>();
+        float timer = 0.1f;
+
+        while (timer > 0.0f)
+        {
+            Debug.Log("timer: " + timer); 
+            timer -= Time.deltaTime; 
+            sprite.enabled = false;
+            yield return new WaitForSeconds(0.05f);
+            sprite.enabled = true;
+            yield return new WaitForSeconds(0.05f);
+        }
+
+
+    }
 }

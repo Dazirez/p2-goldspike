@@ -10,3 +10,6 @@ ENEMY MODEL
 
 BACKGROUND MUSIC 
     - https://assetstore.unity.com/packages/audio/music/electronic/8-bit-fantasy-adventure-music-211334
+
+CAMERA SHAKE EFFECT
+    - https://github.com/andersonaddo/EZ-Camera-Shake-Unity
