@@ -3958,7 +3958,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: c5e381d487a7349ce9765137876b0661, type: 3}
+  - {fileID: 8300000, guid: 9f79d759e08b9b64db080bd318582c0f, type: 3}
+  - {fileID: 8300000, guid: ef786cc75ffd44cd1990a0c864c9064c, type: 3}
 --- !u!4 &176714093
 Transform:
   m_ObjectHideFlags: 0
@@ -5971,7 +5972,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 100, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &306459268
 MeshRenderer:
@@ -6031,7 +6032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306459266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.64, y: -1.11, z: 0}
+  m_LocalPosition: {x: 11.52, y: -1.02, z: 0}
   m_LocalScale: {x: 1, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9347,7 +9348,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh305710
+  m_Name: pb_Mesh21082
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15466,7 +15467,7 @@ GameObject:
   - component: {fileID: 888436475}
   - component: {fileID: 888436476}
   - component: {fileID: 888436477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15594,7 +15595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d39fcc763404374b2989daa51973a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback_power: 15
+  knockback_power: 10
   destroy_self_on_touch: 0
   disabled: 1
 --- !u!114 &888436474
@@ -15609,7 +15610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513a164a01f21489a854fa17c23bf7e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
 --- !u!95 &888436475
 Animator:
   serializedVersion: 4
@@ -15654,7 +15655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23da66c3c49045f0906454ffd46ddb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dash_attack_force: 40
+  dash_attack_force: 30
 --- !u!1001 &895259117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28990,7 +28991,7 @@ GameObject:
   - component: {fileID: 1713168535}
   - component: {fileID: 1713168534}
   - component: {fileID: 1713168536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

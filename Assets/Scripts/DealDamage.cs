@@ -10,6 +10,7 @@ public class DealDamage : MonoBehaviour
         if(other.CompareTag("finishline"))
         {
             EventBus.Publish<DamageEvent>(new DamageEvent(damage_amount));
+            Destroy(gameObject);
         }
     }
 }

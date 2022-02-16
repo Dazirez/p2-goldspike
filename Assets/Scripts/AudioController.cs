@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     Subscription<CollisionEvent> collision_event_subscription;
+    Subscription<DamageEvent> damage_event_subscription;
 
     public static AudioController instance;
     public AudioClip[] clips;
@@ -23,10 +24,17 @@ public class AudioController : MonoBehaviour
     private void Start()
     {
         collision_event_subscription = EventBus.Subscribe<CollisionEvent>(_OnCollisionUpdated);
+        damage_event_subscription = EventBus.Subscribe<DamageEvent>(_OnDamageUpdate);
+
     }
     void _OnCollisionUpdated(CollisionEvent e)
     {
         AudioSource.PlayClipAtPoint(clips[0], Camera.main.transform.position);
+    }
+    void _OnDamageUpdate(DamageEvent e)
+    {
+        AudioSource.PlayClipAtPoint(clips[1], Camera.main.transform.position);
+
     }
     public void play_clip(int n)
     {
