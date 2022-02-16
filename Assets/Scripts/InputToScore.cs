@@ -17,10 +17,11 @@ public class InputToScore : MonoBehaviour
         text_component = GetComponent<TMP_Text>();
     }
 
-    //void _OnScoreUpdated(ScoreEvent e)
-    //{
-    //    Debug.Log("enemy died");
-    //}
+    private void Update()
+    {
+        text_component.text = "Score : " + total_score;
+
+    }
     void _OnScoreUpdated(ScoreEvent e)
     {
         total_score += e.new_score;
