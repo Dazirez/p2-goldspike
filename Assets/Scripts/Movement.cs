@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
         rb.velocity = curr * speed;
     }
 
-    protected virtual Vector2 GetInput() {
+    public virtual Vector2 GetInput() {
         return Vector2.zero; 
     }
 

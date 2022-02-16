@@ -16,7 +16,7 @@ public class PlayerMovement : Movement
         base.FixedUpdate(); 
     }
 
-    protected override Vector2 GetInput() {
+    public override Vector2 GetInput() {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
 

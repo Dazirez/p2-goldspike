@@ -17,7 +17,7 @@ public class SlimeMovement : Movement
         base.FixedUpdate();
     }
 
-    protected override Vector2 GetInput()
+    public override Vector2 GetInput()
     {
         return Vector2.right;
     }
