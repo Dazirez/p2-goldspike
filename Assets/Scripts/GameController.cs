@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameController : MonoBehaviour
 {
@@ -34,7 +36,7 @@ public class GameController : MonoBehaviour
         health -= e.damage_amount;
         if(health < 0)
         {
-            Debug.Log("Game Over"); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
     

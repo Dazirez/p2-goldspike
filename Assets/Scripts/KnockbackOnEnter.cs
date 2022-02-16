@@ -26,7 +26,7 @@ public class KnockbackOnEnter : MonoBehaviour
             Vector3 knockback_direction = (other.transform.position - transform.position).normalized;
             other_rb.velocity = Vector2.zero;
             knockback_direction.x = -Math.Abs(knockback_direction.x);
-          
+
             other_rb.AddForce(knockback_direction.normalized * knockback_power, ForceMode.Impulse);
 
         }
