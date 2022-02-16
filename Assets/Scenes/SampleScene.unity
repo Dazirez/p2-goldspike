@@ -15346,6 +15346,7 @@ GameObject:
   - component: {fileID: 888436467}
   - component: {fileID: 888436473}
   - component: {fileID: 888436472}
+  - component: {fileID: 888436474}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -15364,8 +15365,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5, z: 0.2}
-  m_Center: {x: -0.1, y: -0.5, z: 0}
+  m_Size: {x: 0.5, y: 0.5, z: 0.2}
+  m_Center: {x: 0.09, y: -0.5, z: 0}
 --- !u!54 &888436468
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15389,7 +15390,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888436466}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eefb104e004a4b7faec5f9c7c114490, type: 3}
   m_Name: 
@@ -15474,8 +15475,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.5, z: 0.2}
-  m_Center: {x: -0.1, y: -0.5, z: 0}
+  m_Size: {x: 0.9, y: 1, z: 0.2}
+  m_Center: {x: 0.08, y: -0.47, z: 0}
 --- !u!114 &888436473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15490,6 +15491,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockback_power: 100
   destroy_self_on_touch: 0
+--- !u!114 &888436474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888436466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513a164a01f21489a854fa17c23bf7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 25
 --- !u!1001 &895259117
 PrefabInstance:
   m_ObjectHideFlags: 0
