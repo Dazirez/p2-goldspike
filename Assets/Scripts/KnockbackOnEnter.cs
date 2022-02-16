@@ -70,7 +70,7 @@ public class KnockbackOnEnter : MonoBehaviour
     private IEnumerator Stun(Collider other)
     {
         SpriteRenderer sprite = other.GetComponent<SpriteRenderer>();
-        float timer = 0.1f;
+        float timer = 0.05f;
 
         while (timer > 0.0f)
         {
