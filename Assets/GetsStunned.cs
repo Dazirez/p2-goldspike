@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stun : MonoBehaviour
+public class GetsStunned : MonoBehaviour
 {
     public float timer = 2f;
     private bool stunned = false;
@@ -14,7 +14,7 @@ public class Stun : MonoBehaviour
         timer -= Time.deltaTime;
 
     }
-    public void GetStunned()
+    public void Stun()
     {
         if (!stunned)
         {

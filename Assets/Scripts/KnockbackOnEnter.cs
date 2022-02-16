@@ -20,7 +20,7 @@ public class KnockbackOnEnter : MonoBehaviour
         /* Perform Knockback */
         if (other_rb != null)
         {
-            other.GetComponent<Stun>().GetStunned(); 
+            other.GetComponent<GetsStunned>().Stun(); 
 
             EventBus.Publish<CollisionEvent>(new CollisionEvent(knockback_power));
 
