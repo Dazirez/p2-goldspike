@@ -37,12 +37,12 @@ public class PlayerControls : MonoBehaviour
         mv.enabled = false;
         rb.velocity = -direction * 10.0f;
         yield return new WaitForSeconds(0.2f);
-        GetComponent<KnockbackOnEnter>().disabled = false;
+        transform.Find("dashattack").gameObject.SetActive(true); 
 
         EventBus.Publish<DashEvent>(new DashEvent());
         rb.velocity = direction * dash_attack_force;
         yield return new WaitForSeconds(0.1f);
-        GetComponent<KnockbackOnEnter>().disabled = true;
+        transform.Find("dashattack").gameObject.SetActive(false);
         rb.velocity = Vector2.zero;
         mv.enabled = true;
         yield return new WaitForSeconds(0.25f);
@@ -54,11 +54,11 @@ public class PlayerControls : MonoBehaviour
         busy = true;
         mv.enabled = false;
         rb.velocity = Vector2.zero;
-        GetComponent<KnockbackOnEnter>().disabled = false;
+        transform.Find("swordattack").gameObject.SetActive(true);
         EventBus.Publish<SwordSwingEvent>(new SwordSwingEvent());
 
         yield return new WaitForSeconds(0.5f);
-        GetComponent<KnockbackOnEnter>().disabled = true;
+        transform.Find("swordattack").gameObject.SetActive(false);
         mv.enabled = true;
         rb.velocity = Vector2.zero;
 
