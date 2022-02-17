@@ -5747,7 +5747,7 @@ MonoBehaviour:
   enemies_left: 0
   score: 0
   current_level: 0
-  num_enemies: 0f000000020000000e000000
+  enemies: 
   levels:
   - Level 0
   - Level 1
@@ -16830,12 +16830,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 683958301}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &888436466 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5375231502360221061, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5375231501617062775}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &889315136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7648007206418135593, guid: bd2644547ed98498fa91547fc820674e,
@@ -18866,7 +18860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59df771b9d3074b0883787f2fec46ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 888436466}
+  player: {fileID: 0}
 --- !u!82 &963194230
 AudioSource:
   m_ObjectHideFlags: 0
@@ -38959,6 +38953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375231502360221061, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
+        type: 3}
+      propertyPath: m_TagString
+      value: player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ee8cd8dbb2c4f1088715b32790d77a, type: 3}

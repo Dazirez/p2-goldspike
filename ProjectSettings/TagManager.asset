@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - finishline
+  - player
   layers:
   - Default
   - TransparentFX
