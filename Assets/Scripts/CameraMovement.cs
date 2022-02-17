@@ -13,6 +13,10 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("player");
+        if(player == null) {
+            Debug.Log("PLAYER NOT FOUND");
+        }
         offset = transform.position - player.transform.position;
         collision_event_subscription = EventBus.Subscribe<CollisionEvent>(_OnCollisionUpdated);
 
@@ -24,7 +28,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        transform.position = new Vector3(2, -1, -11);
     }
 
 }

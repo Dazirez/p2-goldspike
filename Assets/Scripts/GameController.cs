@@ -15,24 +15,21 @@ public class GameController : MonoBehaviour
     public int health = 100;
     public int enemies_left;
     public int score = 0; 
-    public int current_level;
+    public int current_level = 0;
     public int[] num_enemies;
-
+    public string[] levels; 
     void Awake()
     {
-       
+        enemies_left = num_enemies[current_level];
+        DontDestroyOnLoad(this.gameObject);
         if (instance == null)
         {
-            enemies_left = num_enemies[current_level - 1];
-
             damage_event_subscription = EventBus.Subscribe<DamageEvent>(_OnDamageUpdate);
             death_event_subscription = EventBus.Subscribe<ScoreEvent>(_OnScoreUpdated);
             instance = this;
         }
         else if (instance != this)
         {
-            EventBus.Unsubscribe(damage_event_subscription);
-            EventBus.Unsubscribe(death_event_subscription);
             Destroy(gameObject);
         }
     }
@@ -43,6 +40,7 @@ public class GameController : MonoBehaviour
     //    death_event_subscription = EventBus.Subscribe<ScoreEvent>(_OnScoreUpdated);
     //}
 
+    
     void _OnScoreUpdated(ScoreEvent e)
     {
         score += e.new_score;
@@ -55,22 +53,10 @@ public class GameController : MonoBehaviour
     }
     void LoadNext()
     {
-        if(current_level == 1)
-        {
-            current_level = 2; 
-            SceneManager.LoadScene("Level 2", LoadSceneMode.Single);
-        }
-        else if(current_level == 2)
-        {
-            current_level = 3;
-            SceneManager.LoadScene("Level 3", LoadSceneMode.Single);
-
-        }
-        else if (current_level == 3)
-        {
-            current_level = 1;
-            SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
-        }
+        current_level = (current_level + 1) % levels.Length;
+        SceneManager.LoadScene(levels[current_level], LoadSceneMode.Single);
+        enemies_left = num_enemies[current_level];
+        Debug.Log("Current level: " + current_level); 
     }
 
     void _OnDamageUpdate(DamageEvent e)
@@ -84,6 +70,7 @@ public class GameController : MonoBehaviour
         }
         if (health <= 0)
         {
+            enemies_left = num_enemies[current_level];
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
