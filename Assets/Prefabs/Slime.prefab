@@ -149,7 +149,7 @@ MonoBehaviour:
   score_value: 10
   lower_bound: -6.3
   upper_bound: 4.25
-  left_bound: -10.5
+  left_bound: -10.7
 --- !u!114 &-6058292616287661574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd7d877108374c37b2a5add3bd092fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0.5
+  stun_duration: 0.5
 --- !u!95 &7152721952482871020
 Animator:
   serializedVersion: 4

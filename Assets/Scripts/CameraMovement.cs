@@ -13,6 +13,8 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+
         player = GameObject.FindGameObjectWithTag("player");
         if(player == null) {
             Debug.Log("PLAYER NOT FOUND");
