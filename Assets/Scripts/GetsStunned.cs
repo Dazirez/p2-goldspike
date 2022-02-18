@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GetsStunned : MonoBehaviour
 {
-    public float timer = 2f;
+    public float stun_duration = 0.5f; 
+    private float timer;
     private bool stunned = false;
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class GetsStunned : MonoBehaviour
 
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         Movement mv = GetComponent<Movement>();
-        timer = 2f;
+        timer = stun_duration;
         mv.enabled = false;
         while(timer > 0)
         {
