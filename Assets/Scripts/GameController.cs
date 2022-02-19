@@ -12,7 +12,11 @@ public class GameController : MonoBehaviour
     Subscription<DamageEvent> damage_event_subscription;
     Subscription<ScoreEvent> death_event_subscription;
 
-    public int health = 100;
+    public HealthBar healthBar;
+
+    public int maxHealth = 100;
+    public int currentHealth = 100;
+
     public int enemies_left;
     public int score = 0; 
     public int current_level = 0;
@@ -23,6 +27,7 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         if (instance == null)
         {
+            healthBar.SetMaxHealth(maxHealth);
             damage_event_subscription = EventBus.Subscribe<DamageEvent>(_OnDamageUpdate);
             death_event_subscription = EventBus.Subscribe<ScoreEvent>(_OnScoreUpdated);
             instance = this;
@@ -56,10 +61,10 @@ public class GameController : MonoBehaviour
 
     void _OnDamageUpdate(DamageEvent e)
     {
-        health -= e.damage_amount;
+        currentHealth -= e.damage_amount;
+        healthBar.SetHealth(currentHealth);
         enemies_left--;
-        
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

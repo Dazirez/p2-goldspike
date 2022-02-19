@@ -18,7 +18,7 @@ public class InputToHealth : MonoBehaviour
     }
     private void Update()
     {
-        text_component.text = "Town Health : " + GameController.instance.health;
+        text_component.text = "Town Health : " + GameController.instance.currentHealth;
 
     }
 
@@ -29,7 +29,7 @@ public class InputToHealth : MonoBehaviour
     void _OnDamageUpdate(DamageEvent e)
     {
         
-        text_component.text = "Town Health : " + GameController.instance.health;
+        text_component.text = "Town Health : " + GameController.instance.currentHealth;
     }
 
     private void OnDestroy()
