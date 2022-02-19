@@ -38,6 +38,7 @@ public class AudioController : MonoBehaviour
     }
     void _OnLevelUp(LevelUpEvent e)
     {
+        Debug.Log("playing level up");
         play_clip(2); 
     }
 
