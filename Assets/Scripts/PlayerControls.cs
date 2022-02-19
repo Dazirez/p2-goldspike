@@ -12,8 +12,6 @@ public class PlayerControls : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
-
         attack1 = GetComponent<DashAttack>();
         mv = GetComponent<Movement>();
         rb = GetComponent<Rigidbody>();
