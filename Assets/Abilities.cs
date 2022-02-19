@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class Abilities : MonoBehaviour { 
 
     [Header("Ability 1")]
-    public Image abilityImage1;
-    public float cooldown1;
+    public Image abilityImage;
+    public float cooldown;
     bool isCoolDown = false;
-    public KeyCode ability1; 
+    public KeyCode ability; 
     // Start is called before the first frame update
     void Start()
     {
-        abilityImage1.fillAmount = 0; 
+        abilityImage.fillAmount = 0; 
     }
 
     // Update is called once per frame
@@ -23,17 +23,17 @@ public class Abilities : MonoBehaviour {
     }
     void Ability1()
     {
-        if(Input.GetKey(ability1) && isCoolDown == false)
+        if(Input.GetKey(ability) && isCoolDown == false)
         {
             isCoolDown = true;
-            abilityImage1.fillAmount = 1; 
+            abilityImage.fillAmount = 1; 
         }
         if(isCoolDown)
         {
-            abilityImage1.fillAmount -= 1 / cooldown1 * Time.deltaTime;
-            if(abilityImage1.fillAmount <= 0)
+            abilityImage.fillAmount -= 1 / cooldown * Time.deltaTime;
+            if(abilityImage.fillAmount <= 0)
             {
-                abilityImage1.fillAmount = 0;
+                abilityImage.fillAmount = 0;
                 isCoolDown = false; 
             }
         }
