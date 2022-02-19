@@ -4,27 +4,37 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    DashAttack attack1;
     Movement mv;
     Rigidbody rb; 
     bool busy = false;
-    public float dash_attack_force = 40f; 
+
+    public float dash_attack_force = 40f;
+
+    public float[] timers;
+    public float[] cooldown_durations;
+
     // Update is called once per frame
     private void Start()
     {
-        attack1 = GetComponent<DashAttack>();
         mv = GetComponent<Movement>();
         rb = GetComponent<Rigidbody>();
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !busy)
+        for(int i = 0; i < timers.Length; i++)
         {
+            timers[i] -= Time.deltaTime; 
+        }
+        if(Input.GetKeyDown(KeyCode.Space) && !busy && timers[0] < 0)
+        {
+            timers[0] = cooldown_durations[0];
+
             //attack1.Attack();
             StartCoroutine(dashattack());
         }
-        if (Input.GetKeyDown(KeyCode.X) && !busy)
+        if (Input.GetKeyDown(KeyCode.X) && !busy && timers[1] < 0)
         {
+            timers[1] = cooldown_durations[1]; 
             //attack1.Attack();
             StartCoroutine(swordattack());
         }
