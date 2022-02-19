@@ -29,6 +29,15 @@ public class DashEvent
     public DashEvent() { }
 }
 
+
+public class LevelUpEvent
+{
+    public int level = 0;
+    public LevelUpEvent(int _level ) {
+        level = _level; 
+    }
+}
+
 public class SwordSwingEvent
 {
     public SwordSwingEvent() { }

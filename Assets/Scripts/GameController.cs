@@ -22,9 +22,10 @@ public class GameController : MonoBehaviour
     public int maxXP = 100; 
 
     public int enemies_left;
-    public int current_level = 0;
 
-    public int[] enemies;
+    public int current_level = 0;
+    public int player_level = 1;
+
     public string[] levels; 
     void Awake()
     {
@@ -54,16 +55,19 @@ public class GameController : MonoBehaviour
     void _OnScoreUpdated(ScoreEvent e)
     {
         currentXP += e.new_score;
+        if(currentXP >= 100)
+        {
+            currentXP %= 100;
+            current_level++;
+            EventBus.Publish<LevelUpEvent>(new LevelUpEvent(current_level));
+        }
         XPBar.SetHealth(currentXP);
-
+        
         enemies_left--;
     }
     void LoadNext()
     {
-        Debug.Log("level lenght: " + levels.Length);
         current_level = (current_level + 1) % levels.Length;
-        Debug.Log("current level = " + current_level);
-
         SceneManager.LoadScene(levels[current_level], LoadSceneMode.Single);
     }
 

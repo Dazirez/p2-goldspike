@@ -55,7 +55,6 @@ public class PlayerControls : MonoBehaviour
         transform.Find("dashattack").gameObject.SetActive(false);
         rb.velocity = Vector2.zero;
         mv.enabled = true;
-        yield return new WaitForSeconds(1.0f);
         busy = false;
 
     }
@@ -71,9 +70,6 @@ public class PlayerControls : MonoBehaviour
         transform.Find("swordattack").gameObject.SetActive(false);
         mv.enabled = true;
         rb.velocity = Vector2.zero;
-
-        yield return new WaitForSeconds(0.25f);
         busy = false;
-
     }
 }
