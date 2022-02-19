@@ -38,8 +38,7 @@ public class AudioController : MonoBehaviour
     }
     void _OnLevelUp(LevelUpEvent e)
     {
-        Debug.Log("playing level up");
-        play_clip(2); 
+        play_clip(2);
     }
 
     public void play_clip(int n)
@@ -51,7 +50,6 @@ public class AudioController : MonoBehaviour
         EventBus.Unsubscribe(damage_event_subscription);
         EventBus.Unsubscribe(collision_event_subscription);
         EventBus.Unsubscribe(level_up_event_subscription);
-
     }
 }
 
