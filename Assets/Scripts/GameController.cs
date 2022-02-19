@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
 
     public int enemies_left;
     public int current_level = 0;
+
     public int[] enemies;
     public string[] levels; 
     void Awake()
@@ -59,7 +60,10 @@ public class GameController : MonoBehaviour
     }
     void LoadNext()
     {
+        Debug.Log("level lenght: " + levels.Length);
         current_level = (current_level + 1) % levels.Length;
+        Debug.Log("current level = " + current_level);
+
         SceneManager.LoadScene(levels[current_level], LoadSceneMode.Single);
     }
 
