@@ -16,3 +16,6 @@ SOUND EFFECTS
 BUILDING MODELS
     - https://assetstore.unity.com/packages/2d/environments/tiny-rpg-town-environment-88293
     - https://assetstore.unity.com/packages/2d/environments/pixel-art-top-down-basic-187605g
+
+HEALTHBAR TUTORIAL
+    -https://www.youtube.com/watch?v=BLfNP4Sc_iA
