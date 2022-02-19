@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  rest_timer: 2
 --- !u!114 &869014989345764257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd7d877108374c37b2a5add3bd092fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0.5
+  stun_duration: 0.5
 --- !u!114 &869014989345764254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2472733162a40179da968e022f8c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage_amount: 50
+  damage_amount: 10
 --- !u!95 &869014989345764256
 Animator:
   serializedVersion: 4

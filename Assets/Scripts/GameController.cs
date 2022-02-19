@@ -13,18 +13,20 @@ public class GameController : MonoBehaviour
     Subscription<ScoreEvent> death_event_subscription;
 
     public HealthBar healthBar;
+    public HealthBar XPBar;
 
     public int maxHealth = 100;
     public int currentHealth = 100;
 
+    public int currentXP = 0;
+    public int maxXP = 100; 
+
     public int enemies_left;
-    public int score = 0; 
     public int current_level = 0;
     public int[] enemies;
     public string[] levels; 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
         if (instance == null)
         {
             healthBar.SetMaxHealth(maxHealth);
@@ -50,7 +52,9 @@ public class GameController : MonoBehaviour
 
     void _OnScoreUpdated(ScoreEvent e)
     {
-        score += e.new_score;
+        currentXP += e.new_score;
+        XPBar.SetHealth(currentXP);
+
         enemies_left--;
     }
     void LoadNext()
