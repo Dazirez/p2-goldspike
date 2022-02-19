@@ -27,6 +27,7 @@ public class PlayerControls : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Space) && !busy && timers[0] < 0)
         {
+
             timers[0] = cooldown_durations[0];
 
             //attack1.Attack();
@@ -34,6 +35,7 @@ public class PlayerControls : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X) && !busy && timers[1] < 0)
         {
+
             timers[1] = cooldown_durations[1]; 
             //attack1.Attack();
             StartCoroutine(swordattack());

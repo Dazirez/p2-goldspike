@@ -49,18 +49,20 @@ public class GameController : MonoBehaviour
         {
             LoadNext();
         }
+        if (currentXP >= 100)
+        {
+            currentXP %= 100;
+            XPBar.SetHealth(currentXP);
+
+            player_level++;
+            EventBus.Publish<LevelUpEvent>(new LevelUpEvent(player_level));
+        }
 
     }
 
     void _OnScoreUpdated(ScoreEvent e)
     {
         currentXP += e.new_score;
-        if(currentXP >= 100)
-        {
-            currentXP %= 100;
-            player_level++;
-            EventBus.Publish<LevelUpEvent>(new LevelUpEvent(player_level));
-        }
         XPBar.SetHealth(currentXP);
         enemies_left--;
     }
