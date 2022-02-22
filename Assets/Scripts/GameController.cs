@@ -44,6 +44,10 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("main_menu", LoadSceneMode.Single);
+        }
         enemies_left = GameObject.FindGameObjectsWithTag("enemy").Length;
         if (enemies_left <= 0)
         {
