@@ -25,7 +25,7 @@ public class PlayerControls : MonoBehaviour
         {
             timers[i] -= Time.deltaTime; 
         }
-        if(Input.GetKeyDown(KeyCode.Space) && !busy && timers[0] < 0)
+        if(Input.GetKeyDown(KeyCode.X) && !busy && timers[0] < 0)
         {
 
             timers[0] = cooldown_durations[0];
@@ -33,12 +33,19 @@ public class PlayerControls : MonoBehaviour
             //attack1.Attack();
             StartCoroutine(dashattack());
         }
-        if (Input.GetKeyDown(KeyCode.X) && !busy && timers[1] < 0)
+        if (Input.GetKeyDown(KeyCode.Z) && !busy && timers[1] < 0)
         {
 
             timers[1] = cooldown_durations[1]; 
             //attack1.Attack();
             StartCoroutine(swordattack());
+        }
+        if (Input.GetKeyDown(KeyCode.C) && !busy && timers[2] < 0)
+        {
+
+            timers[1] = cooldown_durations[2];
+            //attack1.Attack();
+            StartCoroutine(groundpoundattack());
         }
     }
 
@@ -70,6 +77,20 @@ public class PlayerControls : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
         transform.Find("swordattack").gameObject.SetActive(false);
+        mv.enabled = true;
+        rb.velocity = Vector2.zero;
+        busy = false;
+    }
+    IEnumerator groundpoundattack()
+    {
+        busy = true;
+        mv.enabled = false;
+        rb.velocity = Vector2.zero;
+        transform.Find("groundpoundattack").gameObject.SetActive(true);
+        EventBus.Publish<SwordSwingEvent>(new SwordSwingEvent());
+
+        yield return new WaitForSeconds(0.2f);
+        transform.Find("groundpoundattack").gameObject.SetActive(false);
         mv.enabled = true;
         rb.velocity = Vector2.zero;
         busy = false;

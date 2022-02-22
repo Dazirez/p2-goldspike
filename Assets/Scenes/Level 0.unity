@@ -7818,7 +7818,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21854
+  m_Name: pb_Mesh21856
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8372,7 +8372,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21398
+  m_Name: pb_Mesh21400
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10454,7 +10454,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21198
+  m_Name: pb_Mesh21200
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15840,7 +15840,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21702
+  m_Name: pb_Mesh21704
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -29273,7 +29273,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21576
+  m_Name: pb_Mesh21578
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -30511,24 +30511,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1560339105}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1561732687 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5375231502360221061, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5375231501617062775}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1561732696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561732687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd6ab416544d4434485c229f18e5eed6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1567628985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34217,7 +34199,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!1001 &1815269203
 PrefabInstance:
@@ -39252,40 +39234,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5375231502129849732, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 2.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375231502129849732, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375231502129849732, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375231502129849732, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -0.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375231502129849752, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375231502347349462, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5375231502360221056, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5375231502360221056, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
         type: 3}
@@ -39337,55 +39289,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5375231502360221059, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375231502360221060, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375231502360221060, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375231502360221060, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.03
-      objectReference: {fileID: 0}
     - target: {fileID: 5375231502360221061, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
         type: 3}
       propertyPath: m_Name
       value: SwordMaster
       objectReference: {fileID: 0}
-    - target: {fileID: 5375231502360221061, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: m_TagString
-      value: player
-      objectReference: {fileID: 0}
     - target: {fileID: 5375231502360221066, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
         type: 3}
       propertyPath: timers.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5375231502360221066, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
         type: 3}
       propertyPath: cooldown_durations.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5375231502360221066, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
         type: 3}
-      propertyPath: cooldown_durations.Array.data[0]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375231502360221066, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
-        type: 3}
-      propertyPath: cooldown_durations.Array.data[1]
-      value: 0.5
+      propertyPath: cooldown_durations.Array.data[2]
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ee8cd8dbb2c4f1088715b32790d77a, type: 3}
