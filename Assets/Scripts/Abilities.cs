@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class Abilities : MonoBehaviour { 
 
-    [Header("Ability 1")]
     public Image abilityImage;
-    public float cooldown;
+    private float cooldown;
+    public int abilitynumber; 
     bool isCoolDown = false;
     public KeyCode ability; 
     // Start is called before the first frame update
     void Start()
     {
-        abilityImage.fillAmount = 0; 
+        abilityImage.fillAmount = 0;
+        cooldown = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerControls>().cooldown_durations[abilitynumber];
     }
 
     // Update is called once per frame

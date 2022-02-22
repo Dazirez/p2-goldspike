@@ -12979,6 +12979,7 @@ GameObject:
   - component: {fileID: 677935295}
   - component: {fileID: 677935297}
   - component: {fileID: 677935296}
+  - component: {fileID: 677935298}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -13026,9 +13027,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'XP
-
-'
+  m_text: Level 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -13105,6 +13104,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677935294}
   m_CullTransparentMesh: 1
+--- !u!114 &677935298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677935294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efcd06fd6c03e4c2184dc4d4f952ed7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
 --- !u!1001 &684470416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20217,7 +20229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityImage: {fileID: 1878082257}
-  cooldown: 5
+  abilitynumber: 0
   ability: 32
 --- !u!1001 &1005091784
 PrefabInstance:
@@ -22727,7 +22739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityImage: {fileID: 2022299734}
-  cooldown: 1
+  abilitynumber: 1
   ability: 120
 --- !u!1001 &1182889188
 PrefabInstance:
@@ -39373,7 +39385,7 @@ PrefabInstance:
     - target: {fileID: 5375231502360221066, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
         type: 3}
       propertyPath: cooldown_durations.Array.data[1]
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ee8cd8dbb2c4f1088715b32790d77a, type: 3}
