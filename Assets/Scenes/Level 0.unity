@@ -20230,7 +20230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityImage: {fileID: 1878082257}
   abilitynumber: 0
-  ability: 32
+  ability: 120
 --- !u!1001 &1005091784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22740,7 +22740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityImage: {fileID: 2022299734}
   abilitynumber: 1
-  ability: 120
+  ability: 122
 --- !u!1001 &1182889188
 PrefabInstance:
   m_ObjectHideFlags: 0
