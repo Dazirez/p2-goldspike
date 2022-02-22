@@ -3642,7 +3642,7 @@ GameObject:
   - component: {fileID: 154232319}
   - component: {fileID: 154232318}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39324,6 +39324,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375231502360221059, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375231502360221060, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375231502360221060, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375231502360221060, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5375231502360221061, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
         type: 3}
