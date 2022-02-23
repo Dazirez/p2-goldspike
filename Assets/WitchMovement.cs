@@ -86,11 +86,12 @@ public class WitchMovement : Movement
             }
         }
     }
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
         if(attacking)
         {
             ToggleWitchAttack(); 
         }
+        base.OnDestroy();
     }
 }

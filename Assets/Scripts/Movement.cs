@@ -6,17 +6,31 @@ using static System.Math;
 
 public class Movement : MonoBehaviour
 {
+    Subscription<LevelUpEvent> level_up_event_subscription;
+
     public float speed = 25f;
 
     Vector2 current_direction; 
     protected Rigidbody rb;
+    bool enabled = true; 
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
+        level_up_event_subscription = EventBus.Subscribe<LevelUpEvent>(_OnLevelUp);
 
+    }
+    void _OnLevelUp(LevelUpEvent e)
+    {
+        StartCoroutine(LevelUp());
+    }
+    IEnumerator LevelUp()
+    {
+        enabled = false;
+        yield return new WaitForSeconds(2.0f);
+        enabled = true; 
+    }
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
@@ -29,6 +43,8 @@ public class Movement : MonoBehaviour
         {
             current_direction = curr; 
         }
+        if (!enabled) current_direction = Vector2.zero;
+
         rb.velocity = current_direction * speed;
     }
 
@@ -38,5 +54,11 @@ public class Movement : MonoBehaviour
     public Vector2 GetDirection()
     {
         return current_direction; 
+    }
+
+    protected virtual void OnDestroy()
+    {
+        EventBus.Unsubscribe(level_up_event_subscription);
+
     }
 }
