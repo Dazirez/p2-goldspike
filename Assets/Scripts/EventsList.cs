@@ -41,7 +41,7 @@ public class LevelUpEvent
     public bool isBreakpoint;
     public LevelUpEvent(int _level ) {
         level = _level;
-        if(level == 2 || level == 4 || level == 6)
+        if(level == 3 || level == 6 || level == 9)
         {
             isBreakpoint = true; 
         }
