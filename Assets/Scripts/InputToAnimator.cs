@@ -97,6 +97,7 @@ public class InputToAnimator : MonoBehaviour
         timer = 0f;
         while(timer < level_up_timer)
         {
+            GetComponent<Rigidbody>().velocity = Vector2.zero;
             movement.enabled = false;
             yield return null; 
         }
