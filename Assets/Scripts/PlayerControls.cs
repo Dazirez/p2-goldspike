@@ -60,7 +60,7 @@ public class PlayerControls : MonoBehaviour
 
         EventBus.Publish<DashEvent>(new DashEvent());
         rb.velocity = direction * dash_attack_force;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.25f);
         transform.Find("dashattack").gameObject.SetActive(false);
         rb.velocity = Vector2.zero;
         mv.enabled = true;
