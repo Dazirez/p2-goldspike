@@ -12,7 +12,13 @@ public class DestroyOnFall : MonoBehaviour
     public float left_bound; 
     void Update()
     {
-        if(dead)
+        if (transform.position.z < -0.5f)
+        {
+            Debug.Log(transform.position.y); 
+            Debug.Log("adding velocity"); 
+            GetComponent<Rigidbody>().velocity += new Vector3(0, 0, 10);
+        }
+        if (dead)
         {
             GetComponent<Movement>().enabled = false;
             Animator an = GetComponent<Animator>();
@@ -21,7 +27,7 @@ public class DestroyOnFall : MonoBehaviour
                 an.enabled = false; 
             }
         }
-        if (!dead && (transform.position.y > upper_bound || transform.position.y < lower_bound || transform.position.x < left_bound || transform.position.z > 0.5)) {
+        if (!dead && (transform.position.y > upper_bound || transform.position.y < lower_bound || transform.position.x < left_bound)) {
             Debug.Log("died"); 
             GetComponent<Rigidbody>().velocity = Vector2.zero;
             GetComponent<SpriteRenderer>().sortingOrder = -1; 

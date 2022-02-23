@@ -27,8 +27,8 @@ public class WitchMovement : Movement
         if (timer >= rest_timer + move_timer)
         {
             timer = 0.0f;
-            rest_timer = Random.Range(5.0f, 10.0f);
-            move_timer = Random.Range(5.0f, 10.0f);
+            rest_timer = Random.Range(2.0f, 5.0f);
+            move_timer = Random.Range(3.0f, 5.0f);
         }
         timer += Time.deltaTime;
         base.FixedUpdate();
@@ -66,9 +66,9 @@ public class WitchMovement : Movement
             GetComponent<Rigidbody>().mass = 10; 
             foreach (GameObject enemy in enemies)
             {
-                if(enemy != this.gameObject)
+                if(!enemy.CompareTag("witch"))
                 {
-                    enemy.GetComponent<Movement>().speed *= 2;
+                    enemy.GetComponent<Movement>().speed += 1;
                     color = enemy.GetComponent<SpriteRenderer>().color;
                     enemy.GetComponent<SpriteRenderer>().color = Color.red;
                 }
@@ -76,11 +76,11 @@ public class WitchMovement : Movement
         }
         else
         {
-            GetComponent<Rigidbody>().mass = 1;
+            GetComponent<Rigidbody>().mass = 3;
 
             foreach (GameObject enemy in enemies)
             {
-                enemy.GetComponent<Movement>().speed /= 2;
+                enemy.GetComponent<Movement>().speed -= 1;
                 enemy.GetComponent<SpriteRenderer>().color = color;
 
             }

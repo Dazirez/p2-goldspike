@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour
             EventBus.Publish<MainMenuEvent>(new MainMenuEvent());
 
         }
-        enemies_left = GameObject.FindGameObjectsWithTag("enemy").Length;
+        enemies_left = GameObject.FindGameObjectsWithTag("enemy").Length + GameObject.FindGameObjectsWithTag("witch").Length;
         if (enemies_left <= 0)
         {
             LoadNext();

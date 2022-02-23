@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
 
     Vector2 current_direction; 
     protected Rigidbody rb;
-    bool enabled = true; 
+    bool isenabled = true; 
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -27,9 +27,9 @@ public class Movement : MonoBehaviour
     }
     IEnumerator LevelUp()
     {
-        enabled = false;
-        yield return new WaitForSeconds(2.0f);
-        enabled = true; 
+        isenabled = false;
+        yield return new WaitForSeconds(1.0f);
+        isenabled = true; 
     }
     // Update is called once per frame
     protected virtual void FixedUpdate()
@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
         {
             current_direction = curr; 
         }
-        if (!enabled) current_direction = Vector2.zero;
+        if (!isenabled) current_direction = Vector2.zero;
 
         rb.velocity = current_direction * speed;
     }
