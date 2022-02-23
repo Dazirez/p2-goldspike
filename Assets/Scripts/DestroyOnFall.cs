@@ -18,6 +18,7 @@ public class DestroyOnFall : MonoBehaviour
             Debug.Log("adding velocity"); 
             GetComponent<Rigidbody>().velocity += new Vector3(0, 0, 10);
         }
+        
         if (dead)
         {
             GetComponent<Movement>().enabled = false;
@@ -27,8 +28,7 @@ public class DestroyOnFall : MonoBehaviour
                 an.enabled = false; 
             }
         }
-        if (!dead && (transform.position.y > upper_bound || transform.position.y < lower_bound || transform.position.x < left_bound)) {
-            Debug.Log("died"); 
+        if (!dead && (transform.position.y > upper_bound || transform.position.y < lower_bound || transform.position.x < left_bound || transform.position.z > 0.1)) {
             GetComponent<Rigidbody>().velocity = Vector2.zero;
             GetComponent<SpriteRenderer>().sortingOrder = -1; 
             dead = true;

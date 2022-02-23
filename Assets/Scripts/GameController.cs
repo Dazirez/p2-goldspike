@@ -55,11 +55,13 @@ public class GameController : MonoBehaviour
         {
             LoadNext();
         }
-        if (currentXP >= 100)
+        if (currentXP >= maxXP)
         {
-            currentXP %= 100;
+            currentXP %= maxXP;
+            //maxXP += 50;
+            XPBar.SetMaxHealth(maxXP); 
             XPBar.SetHealth(currentXP);
-
+             
             player_level++;
             EventBus.Publish<LevelUpEvent>(new LevelUpEvent(player_level));
         }

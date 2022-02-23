@@ -7,6 +7,7 @@ TagManager:
   - enemy
   - finishline
   - player
+  - witch
   layers:
   - Default
   - TransparentFX
