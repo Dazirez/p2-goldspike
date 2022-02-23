@@ -39,6 +39,10 @@ public class LurkerEvent
 {
     public LurkerEvent() { }
 }
+public class WitchEvent
+{
+    public WitchEvent() { }
+}
 public class LevelUpEvent
 {
     public int level = 0;

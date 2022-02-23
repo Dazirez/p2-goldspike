@@ -63,6 +63,8 @@ public class WitchMovement : Movement
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy"); 
         if(attacking)
         {
+            EventBus.Publish<WitchEvent>(new WitchEvent());
+
             GetComponent<Rigidbody>().mass = 10; 
             foreach (GameObject enemy in enemies)
             {
