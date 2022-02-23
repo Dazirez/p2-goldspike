@@ -8,7 +8,11 @@ public class InputToAnimator : MonoBehaviour
     Movement movement;
     Subscription<DashEvent> dash_event_subscription;
     Subscription<SwordSwingEvent> sword_swing_event_subscription;
-    Subscription<GroundPoundEvent> ground_pound_event_subscription; 
+    Subscription<GroundPoundEvent> ground_pound_event_subscription;
+    Subscription<LevelUpEvent> level_up_event_subscription;
+
+    public float level_up_timer = 2.0f;
+    float timer; 
     private bool facingRight = false; 
     // Start is called before the first frame update
     void Awake()
@@ -18,6 +22,7 @@ public class InputToAnimator : MonoBehaviour
         dash_event_subscription = EventBus.Subscribe<DashEvent>(_OnDash);
         sword_swing_event_subscription = EventBus.Subscribe<SwordSwingEvent>(_OnSwing);
         ground_pound_event_subscription = EventBus.Subscribe<GroundPoundEvent>(_OnGroundPound);
+        level_up_event_subscription = EventBus.Subscribe<LevelUpEvent>(_OnLevelUp); 
     }
 
     void _OnDash(DashEvent e)
@@ -34,10 +39,15 @@ public class InputToAnimator : MonoBehaviour
     {
         animator.SetTrigger("groundpound");
     }
-
+    void _OnLevelUp(LevelUpEvent e)
+    {
+        animator.SetTrigger("levelup");
+        StartCoroutine(LevelUp());
+    }
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
         float x = movement.GetInput().x;
         float y = movement.GetInput().y;
 
@@ -82,10 +92,22 @@ public class InputToAnimator : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+    IEnumerator LevelUp()
+    {
+        timer = 0f;
+        while(timer < level_up_timer)
+        {
+            movement.enabled = false;
+            yield return null; 
+        }
+        yield return new WaitForSeconds(0.5f);
+        movement.enabled = true;
+    }
     private void OnDestroy()
     {
         EventBus.Unsubscribe(dash_event_subscription);
         EventBus.Unsubscribe(sword_swing_event_subscription);
-        EventBus.Unsubscribe(ground_pound_event_subscription); 
+        EventBus.Unsubscribe(ground_pound_event_subscription);
+        EventBus.Unsubscribe(level_up_event_subscription); 
     }
 }
