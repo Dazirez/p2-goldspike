@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
         current_level = (current_level + 1) % levels.Length;
         if (current_level == 0)
         {
-            SceneManager.LoadScene("main_menu", LoadSceneMode.Single);
+            SceneManager.LoadScene("game_over_scene", LoadSceneMode.Single);
             EventBus.Publish<MainMenuEvent>(new MainMenuEvent());
 
         }
@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour
         enemies_left--;
         if (currentHealth <= 0)
         {
-            SceneManager.LoadScene("main_menu", LoadSceneMode.Single);
+            SceneManager.LoadScene("death", LoadSceneMode.Single);
             EventBus.Publish<MainMenuEvent>(new MainMenuEvent());
         }
     }

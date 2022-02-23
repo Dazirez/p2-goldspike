@@ -23,7 +23,9 @@ public class LurkerMovement : Movement
     {
         if(is_moving)
         {
-            if(!played)
+            base.rb.mass = 2f;
+
+            if (!played)
             {
                 EventBus.Publish<LurkerEvent>(new LurkerEvent());
                 played = true; 
@@ -32,7 +34,7 @@ public class LurkerMovement : Movement
             if (base.speed > 3.0f)
             {
                 GetComponent<SpriteRenderer>().color = Color.red;
-                base.rb.mass = 0.5f; 
+                base.rb.mass = 0.25f; 
             }
             animator.speed *= 1.005f; 
             base.speed *= 1.01f;
