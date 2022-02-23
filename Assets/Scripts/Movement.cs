@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
     IEnumerator LevelUp()
     {
         isenabled = false;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         isenabled = true; 
     }
     // Update is called once per frame
