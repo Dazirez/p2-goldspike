@@ -7,6 +7,7 @@ public class AudioController : MonoBehaviour
     Subscription<CollisionEvent> collision_event_subscription;
     Subscription<DamageEvent> damage_event_subscription;
     Subscription<LevelUpEvent> level_up_event_subscription;
+    Subscription<LurkerEvent> lurker_event_subscription;
 
     public static AudioController instance;
     public AudioClip[] clips;
@@ -26,7 +27,8 @@ public class AudioController : MonoBehaviour
     {
         collision_event_subscription = EventBus.Subscribe<CollisionEvent>(_OnCollisionUpdated);
         damage_event_subscription = EventBus.Subscribe<DamageEvent>(_OnDamageUpdate);
-        level_up_event_subscription = EventBus.Subscribe<LevelUpEvent>(_OnLevelUp); 
+        level_up_event_subscription = EventBus.Subscribe<LevelUpEvent>(_OnLevelUp);
+        lurker_event_subscription = EventBus.Subscribe<LurkerEvent>(_OnLurkerEvent); 
     }
     void _OnCollisionUpdated(CollisionEvent e)
     {
@@ -40,7 +42,10 @@ public class AudioController : MonoBehaviour
     {
         play_clip(2);
     }
-
+    void _OnLurkerEvent(LurkerEvent e)
+    {
+        play_clip(3); 
+    }
     public void play_clip(int n)
     {
         AudioSource.PlayClipAtPoint(clips[n], Camera.main.transform.position);
@@ -50,6 +55,7 @@ public class AudioController : MonoBehaviour
         EventBus.Unsubscribe(damage_event_subscription);
         EventBus.Unsubscribe(collision_event_subscription);
         EventBus.Unsubscribe(level_up_event_subscription);
+        EventBus.Unsubscribe(lurker_event_subscription); 
     }
 }
 

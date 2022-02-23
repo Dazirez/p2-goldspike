@@ -10,6 +10,7 @@ public class LurkerMovement : Movement
     private float rest_timer; 
     private float timer;
     private bool is_moving;
+    private bool played = false; 
     protected override void Start()
     {
         animator = GetComponent<Animator>(); 
@@ -22,13 +23,19 @@ public class LurkerMovement : Movement
     {
         if(is_moving)
         {
-            if(base.speed > 3.0f)
+            if(!played)
             {
-                GetComponent<SpriteRenderer>().color = Color.red; 
+                EventBus.Publish<LurkerEvent>(new LurkerEvent());
+                played = true; 
+            }
+
+            if (base.speed > 3.0f)
+            {
+                GetComponent<SpriteRenderer>().color = Color.red;
+                base.rb.mass = 0.5f; 
             }
             animator.speed *= 1.005f; 
             base.speed *= 1.01f;
-            base.rb.mass /= 1.0375f; 
         }
         timer += Time.deltaTime;
         base.FixedUpdate();

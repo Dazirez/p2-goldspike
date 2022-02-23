@@ -35,6 +35,10 @@ public class GroundPoundEvent
 }
 
 
+public class LurkerEvent
+{
+    public LurkerEvent() { }
+}
 public class LevelUpEvent
 {
     public int level = 0;
