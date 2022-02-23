@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 869014989345764253}
   - component: {fileID: 869014989345764250}
   - component: {fileID: 869014989345764251}
-  - component: {fileID: 869014989345764248}
   - component: {fileID: 869014989345764257}
   - component: {fileID: 869014989345764254}
   - component: {fileID: 869014989345764255}
   - component: {fileID: 869014989345764256}
+  - component: {fileID: 1098342684177310723}
   m_Layer: 8
   m_Name: Dragon
   m_TagString: enemy
@@ -120,19 +120,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.94, y: 1.19, z: 0}
   m_Center: {x: 0, y: -0.57, z: 0}
---- !u!114 &869014989345764248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869014989345764249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d2b62462d81452cb2c34c703626295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
 --- !u!114 &869014989345764257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +183,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1098342684177310723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869014989345764249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfe3d3fe4e144574a508ae58435e8ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2

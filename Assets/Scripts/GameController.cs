@@ -87,7 +87,8 @@ public class GameController : MonoBehaviour
         enemies_left--;
         if (currentHealth <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("main_menu", LoadSceneMode.Single);
+            EventBus.Publish<MainMenuEvent>(new MainMenuEvent());
         }
     }
     
