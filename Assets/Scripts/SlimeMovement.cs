@@ -10,12 +10,28 @@ public class SlimeMovement : Movement
     
     private float rest_timer = 0;
     private float move_timer = 0;
-    private float timer = 0.0f; 
-
-
+    private float timer = 0.0f;
+    private float initial_speed;
+    Color color; 
+    protected override void Start()
+    {
+        color = GetComponent<SpriteRenderer>().color; 
+        initial_speed = base.speed; 
+        base.Start();
+    }
     protected override void FixedUpdate()
     {
-        if(timer >= rest_timer + move_timer)
+        //GetComponent<SpriteRenderer>().color = Color.red;
+
+        if (base.speed == initial_speed)
+        {
+            GetComponent<SpriteRenderer>().color = color; 
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        if (timer >= rest_timer + move_timer)
         {
             timer = 0.0f;
             rest_timer = Random.Range(0.1f, 2.0f);

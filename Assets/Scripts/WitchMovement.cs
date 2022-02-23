@@ -7,7 +7,6 @@ public class WitchMovement : Movement
 {
 
 
-    Color color; 
     Animator animator; 
     private float rest_timer = 0;
     private float move_timer = 0;
@@ -71,8 +70,7 @@ public class WitchMovement : Movement
                 if(!enemy.CompareTag("witch"))
                 {
                     enemy.GetComponent<Movement>().speed += 1;
-                    color = enemy.GetComponent<SpriteRenderer>().color;
-                    enemy.GetComponent<SpriteRenderer>().color = Color.red;
+
                 }
             }
         }
@@ -83,7 +81,6 @@ public class WitchMovement : Movement
             foreach (GameObject enemy in enemies)
             {
                 enemy.GetComponent<Movement>().speed -= 1;
-                enemy.GetComponent<SpriteRenderer>().color = color;
 
             }
         }

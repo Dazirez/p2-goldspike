@@ -77,7 +77,16 @@ public class GameController : MonoBehaviour
     void LoadNext()
     {
         current_level = (current_level + 1) % levels.Length;
-        SceneManager.LoadScene(levels[current_level], LoadSceneMode.Single);
+        if (current_level == 0)
+        {
+            SceneManager.LoadScene("main_menu", LoadSceneMode.Single);
+            EventBus.Publish<MainMenuEvent>(new MainMenuEvent());
+
+        }
+        else
+        {
+            SceneManager.LoadScene(levels[current_level], LoadSceneMode.Single);
+        }
     }
 
     void _OnDamageUpdate(DamageEvent e)
