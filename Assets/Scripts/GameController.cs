@@ -47,6 +47,8 @@ public class GameController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("main_menu", LoadSceneMode.Single);
+            EventBus.Publish<MainMenuEvent>(new MainMenuEvent());
+
         }
         enemies_left = GameObject.FindGameObjectsWithTag("enemy").Length;
         if (enemies_left <= 0)

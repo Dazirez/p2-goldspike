@@ -51,3 +51,9 @@ public class DamageEvent
         damage_amount = _damage_amount;
     }
 }
+
+public class MainMenuEvent
+{
+    public MainMenuEvent() { }
+
+}
