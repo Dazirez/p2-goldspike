@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     Movement mv;
-    Rigidbody rb; 
+    Rigidbody rb;
+    Subscription<LevelUpEvent> level_up_event_subscription;
+    int num_unlocked = 1;
     bool busy = false;
 
     public float dash_attack_force = 40f;
@@ -18,14 +20,25 @@ public class PlayerControls : MonoBehaviour
     {
         mv = GetComponent<Movement>();
         rb = GetComponent<Rigidbody>();
+        level_up_event_subscription = EventBus.Subscribe<LevelUpEvent>(_OnLevelUp);
+
     }
+
+    void _OnLevelUp(LevelUpEvent e)
+    {
+        if(e.isBreakpoint)
+        {
+            num_unlocked++; 
+        }
+    }
+
     void Update()
     {
         for(int i = 0; i < timers.Length; i++)
         {
             timers[i] -= Time.deltaTime; 
         }
-        if(Input.GetKeyDown(KeyCode.X) && !busy && timers[0] < 0)
+        if(num_unlocked > 1 && Input.GetKeyDown(KeyCode.X) && !busy && timers[0] < 0)
         {
 
             timers[0] = cooldown_durations[0];
@@ -33,14 +46,14 @@ public class PlayerControls : MonoBehaviour
             //attack1.Attack();
             StartCoroutine(dashattack());
         }
-        if (Input.GetKeyDown(KeyCode.Z) && !busy && timers[1] < 0)
+        if (num_unlocked > 0 && Input.GetKeyDown(KeyCode.Z) && !busy && timers[1] < 0)
         {
 
             timers[1] = cooldown_durations[1]; 
             //attack1.Attack();
             StartCoroutine(swordattack());
         }
-        if (Input.GetKeyDown(KeyCode.C) && !busy && timers[2] < 0)
+        if (num_unlocked > 2 && Input.GetKeyDown(KeyCode.C) && !busy && timers[2] < 0)
         {
 
             timers[2] = cooldown_durations[2];
@@ -96,5 +109,10 @@ public class PlayerControls : MonoBehaviour
         mv.enabled = true;
         rb.velocity = Vector2.zero;
         busy = false;
+    }
+    private void OnDestroy()
+    {
+
+        EventBus.Unsubscribe(level_up_event_subscription);
     }
 }

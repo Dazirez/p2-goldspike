@@ -38,9 +38,19 @@ public class GroundPoundEvent
 public class LevelUpEvent
 {
     public int level = 0;
+    public bool isBreakpoint;
     public LevelUpEvent(int _level ) {
-        level = _level; 
+        level = _level;
+        if(level == 2 || level == 4 || level == 6)
+        {
+            isBreakpoint = true; 
+        }
+        else
+        {
+            isBreakpoint = false; 
+        }
     }
+
 }
 
 public class SwordSwingEvent
