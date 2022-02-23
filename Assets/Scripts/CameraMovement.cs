@@ -24,7 +24,7 @@ public class CameraMovement : MonoBehaviour
     }
     void _OnCollisionUpdated(CollisionEvent e)
     {
-        CameraShaker.Instance.ShakeOnce(4f, e.power / 2.0f, 0.1f, 1f); 
+        CameraShaker.Instance.ShakeOnce(e.power / 10.0f, e.power / 2.0f, 0.1f, 1f); 
     }
     // Update is called once per frame
     void LateUpdate()
@@ -32,4 +32,9 @@ public class CameraMovement : MonoBehaviour
         transform.position = new Vector3(2, -1, -13);
     }
 
+
+    private void OnDestroy()
+    {
+        EventBus.Unsubscribe(collision_event_subscription);
+    }
 }

@@ -7,7 +7,8 @@ public class InputToAnimator : MonoBehaviour
     Animator animator;
     Movement movement;
     Subscription<DashEvent> dash_event_subscription;
-    Subscription<SwordSwingEvent> sword_swing_event_subscription; 
+    Subscription<SwordSwingEvent> sword_swing_event_subscription;
+    Subscription<GroundPoundEvent> ground_pound_event_subscription; 
     private bool facingRight = false; 
     // Start is called before the first frame update
     void Awake()
@@ -15,7 +16,8 @@ public class InputToAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
         movement = GetComponent<Movement>();
         dash_event_subscription = EventBus.Subscribe<DashEvent>(_OnDash);
-        sword_swing_event_subscription = EventBus.Subscribe<SwordSwingEvent>(_OnSwing); 
+        sword_swing_event_subscription = EventBus.Subscribe<SwordSwingEvent>(_OnSwing);
+        ground_pound_event_subscription = EventBus.Subscribe<GroundPoundEvent>(_OnGroundPound);
     }
 
     void _OnDash(DashEvent e)
@@ -28,6 +30,12 @@ public class InputToAnimator : MonoBehaviour
         animator.SetTrigger("sword");
     }
 
+    void _OnGroundPound(GroundPoundEvent e)
+    {
+        animator.SetTrigger("groundpound");
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -36,7 +44,7 @@ public class InputToAnimator : MonoBehaviour
 
         if (!movement.enabled || (x == 0 && y == 0))
         {
-            animator.SetBool("idle", true);
+            //animator.SetBool("idle", true);
 
             //if(!is_player) Debug.Log("disabling movement animation"); 
             //animator.speed = 0.0f;
@@ -47,7 +55,7 @@ public class InputToAnimator : MonoBehaviour
             {
                 Flip();
             }
-            animator.SetBool("idle", false);
+            //animator.SetBool("idle", false);
         }
         else if(x < 0)
         {
@@ -57,11 +65,11 @@ public class InputToAnimator : MonoBehaviour
 
             }
 
-            animator.SetBool("idle", false);
+            //animator.SetBool("idle", false);
         }
         else
         {
-            animator.SetBool("idle", false);
+            //animator.SetBool("idle", false);
 
         }
     }
@@ -79,6 +87,6 @@ public class InputToAnimator : MonoBehaviour
     {
         EventBus.Unsubscribe(dash_event_subscription);
         EventBus.Unsubscribe(sword_swing_event_subscription);
-
+        EventBus.Unsubscribe(ground_pound_event_subscription); 
     }
 }

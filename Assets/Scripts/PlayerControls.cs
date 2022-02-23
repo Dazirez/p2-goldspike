@@ -86,10 +86,12 @@ public class PlayerControls : MonoBehaviour
         busy = true;
         mv.enabled = false;
         rb.velocity = Vector2.zero;
-        transform.Find("groundpoundattack").gameObject.SetActive(true);
-        EventBus.Publish<SwordSwingEvent>(new SwordSwingEvent());
+        EventBus.Publish<GroundPoundEvent>(new GroundPoundEvent());
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(.5f);
+        transform.Find("groundpoundattack").gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+
         transform.Find("groundpoundattack").gameObject.SetActive(false);
         mv.enabled = true;
         rb.velocity = Vector2.zero;

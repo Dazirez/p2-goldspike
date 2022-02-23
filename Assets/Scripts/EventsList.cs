@@ -29,6 +29,11 @@ public class DashEvent
     public DashEvent() { }
 }
 
+public class GroundPoundEvent
+{
+    public GroundPoundEvent() { }
+}
+
 
 public class LevelUpEvent
 {
