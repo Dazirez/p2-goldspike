@@ -14,7 +14,7 @@ public class LurkerMovement : Movement
     protected override void Start()
     {
         animator = GetComponent<Animator>(); 
-        rest_timer = Random.Range(1.0f, 20.0f);
+        rest_timer = Random.Range(1.0f, 15.0f);
         is_moving = false; 
         base.Start();
 
@@ -50,5 +50,10 @@ public class LurkerMovement : Movement
         animator.SetBool("is_moving", true);
         is_moving = true; 
         return Vector2.right;
+    }
+
+    public void awaken()
+    {
+        timer = rest_timer;
     }
 }
