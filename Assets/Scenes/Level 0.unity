@@ -28806,13 +28806,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5410311394087003952, guid: 441d14239985f451485d2c8207422db2,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: ef54a56d1d31846399b431bef1dbd9c5, type: 2}
-    - target: {fileID: 2551945322154565495, guid: 441d14239985f451485d2c8207422db2,
-        type: 3}
+    - target: {fileID: 2139188206, guid: 441d14239985f451485d2c8207422db2, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -28874,11 +28868,6 @@ PrefabInstance:
     - target: {fileID: 6134760740375342136, guid: 441d14239985f451485d2c8207422db2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6134760740375342140, guid: 441d14239985f451485d2c8207422db2,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -39213,25 +39202,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b0ee2c766fe44899b2c2dd40f5c560, type: 3}
---- !u!1 &2139188196 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6134760740375342115, guid: 441d14239985f451485d2c8207422db2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1475585134}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2139188206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2139188196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f274c81a50677454fb10b291bdf39bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.75
 --- !u!1001 &2141265905
 PrefabInstance:
   m_ObjectHideFlags: 0

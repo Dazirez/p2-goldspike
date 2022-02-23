@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 6134760740375342143}
   - component: {fileID: 6134760740375342142}
   - component: {fileID: 6134760740375342141}
-  - component: {fileID: 6134760740375342140}
   - component: {fileID: 2551945322154565495}
   - component: {fileID: 7734389554130836654}
   - component: {fileID: 7233752177808701216}
   - component: {fileID: -5410311394087003952}
+  - component: {fileID: 2139188206}
   m_Layer: 8
   m_Name: Witch
   m_TagString: enemy
@@ -120,19 +120,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6134760740375342140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134760740375342115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d2b62462d81452cb2c34c703626295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
 --- !u!114 &2551945322154565495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 6134760740375342115}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 261053734ba2a344ba192f3abb05298c, type: 2}
+  m_Controller: {fileID: 9100000, guid: ef54a56d1d31846399b431bef1dbd9c5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -196,3 +183,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2139188206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134760740375342115}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f274c81a50677454fb10b291bdf39bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.75

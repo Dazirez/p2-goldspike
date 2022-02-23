@@ -52,7 +52,6 @@ public class WitchMovement : Movement
             {
                 ToggleWitchAttack(); 
             }
-
             return Vector2.right;
         }
        
@@ -64,21 +63,34 @@ public class WitchMovement : Movement
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy"); 
         if(attacking)
         {
+            GetComponent<Rigidbody>().mass = 10; 
             foreach (GameObject enemy in enemies)
             {
-                enemy.GetComponent<Movement>().speed *= 2;
-                color = enemy.GetComponent<SpriteRenderer>().color;
-                enemy.GetComponent<SpriteRenderer>().color = Color.red; 
+                if(enemy != this.gameObject)
+                {
+                    enemy.GetComponent<Movement>().speed *= 2;
+                    color = enemy.GetComponent<SpriteRenderer>().color;
+                    enemy.GetComponent<SpriteRenderer>().color = Color.red;
+                }
             }
         }
         else
         {
+            GetComponent<Rigidbody>().mass = 1;
+
             foreach (GameObject enemy in enemies)
             {
                 enemy.GetComponent<Movement>().speed /= 2;
                 enemy.GetComponent<SpriteRenderer>().color = color;
 
             }
+        }
+    }
+    private void OnDestroy()
+    {
+        if(attacking)
+        {
+            ToggleWitchAttack(); 
         }
     }
 }
