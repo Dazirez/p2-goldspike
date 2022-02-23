@@ -22,6 +22,7 @@ public class DestroyOnFall : MonoBehaviour
             }
         }
         if (!dead && (transform.position.y > upper_bound || transform.position.y < lower_bound || transform.position.x < left_bound || transform.position.z > 0.5)) {
+            Debug.Log("died"); 
             GetComponent<Rigidbody>().velocity = Vector2.zero;
             GetComponent<SpriteRenderer>().sortingOrder = -1; 
             dead = true;
