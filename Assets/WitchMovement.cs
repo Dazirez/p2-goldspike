@@ -16,7 +16,7 @@ public class WitchMovement : Movement
     protected override void Start()
     {
 
-        rest_timer = Random.Range(5.0f, 10.0f);
+        rest_timer = Random.Range(1.0f, 2.0f);
         move_timer = Random.Range(2.0f, 5.0f);
         timer = rest_timer; 
         animator = GetComponent<Animator>(); 
