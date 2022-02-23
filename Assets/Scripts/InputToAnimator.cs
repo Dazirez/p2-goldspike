@@ -41,7 +41,9 @@ public class InputToAnimator : MonoBehaviour
     }
     void _OnLevelUp(LevelUpEvent e)
     {
+        if (!facingRight) Flip(); 
         animator.SetTrigger("levelup");
+        
         StartCoroutine(LevelUp());
     }
     // Update is called once per frame
