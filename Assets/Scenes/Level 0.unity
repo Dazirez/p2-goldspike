@@ -39307,7 +39307,7 @@ PrefabInstance:
     - target: {fileID: 5375231502360221066, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
         type: 3}
       propertyPath: cooldown_durations.Array.data[2]
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ee8cd8dbb2c4f1088715b32790d77a, type: 3}

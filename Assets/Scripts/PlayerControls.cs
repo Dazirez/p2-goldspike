@@ -43,7 +43,7 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C) && !busy && timers[2] < 0)
         {
 
-            timers[1] = cooldown_durations[2];
+            timers[2] = cooldown_durations[2];
             //attack1.Attack();
             StartCoroutine(groundpoundattack());
         }

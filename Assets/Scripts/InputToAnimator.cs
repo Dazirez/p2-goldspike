@@ -33,7 +33,6 @@ public class InputToAnimator : MonoBehaviour
     void _OnGroundPound(GroundPoundEvent e)
     {
         animator.SetTrigger("groundpound");
-
     }
 
     // Update is called once per frame
@@ -44,7 +43,7 @@ public class InputToAnimator : MonoBehaviour
 
         if (!movement.enabled || (x == 0 && y == 0))
         {
-            //animator.SetBool("idle", true);
+            animator.SetBool("idle", true);
 
             //if(!is_player) Debug.Log("disabling movement animation"); 
             //animator.speed = 0.0f;
@@ -55,7 +54,7 @@ public class InputToAnimator : MonoBehaviour
             {
                 Flip();
             }
-            //animator.SetBool("idle", false);
+            animator.SetBool("idle", false);
         }
         else if(x < 0)
         {
@@ -65,11 +64,11 @@ public class InputToAnimator : MonoBehaviour
 
             }
 
-            //animator.SetBool("idle", false);
+            animator.SetBool("idle", false);
         }
         else
         {
-            //animator.SetBool("idle", false);
+            animator.SetBool("idle", false);
 
         }
     }
