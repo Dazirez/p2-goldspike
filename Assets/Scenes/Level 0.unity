@@ -39309,5 +39309,25 @@ PrefabInstance:
       propertyPath: cooldown_durations.Array.data[2]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5676429439310276642, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 5.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676429439310276642, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676429439310276642, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685261079020843475, guid: b5ee8cd8dbb2c4f1088715b32790d77a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ee8cd8dbb2c4f1088715b32790d77a, type: 3}
